@@ -29,7 +29,8 @@
     border: none;
     outline: none;
     background-color: rgba(0, 0, 0, 0);
-    width: 14px;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     padding: 0;
     @include text(
@@ -39,8 +40,46 @@
       $color-blue-button-text
     );
 
+    &_type_minus {
+      background-image: url('../../images/minus.svg');
+    }
+
+    &_type_plus {
+      background-image: url('../../images/plus.svg');
+    }
+
     &:hover {
       color: $background-color-button-hover;
+    }
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .product {
+    &__count {
+      column-gap: 10px;
+      width: 123px;
+      padding: 10px;
+    }
+    &__btnCount {
+      width: 20px;
+      height: 20px;
+      &_type_minus {
+        background-size: 10px 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &_type_plus {
+        background-size: 10px 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     }
   }
 }

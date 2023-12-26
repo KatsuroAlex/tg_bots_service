@@ -3,7 +3,7 @@
 .login {
   max-width: 415px;
   margin: 0 auto;
-  padding: 222px 0 241px;
+  padding: 219px 0 238px;
 
   &__loginContainer {
     display: flex;
@@ -89,6 +89,7 @@
   }
 
   &__error {
+    display: none;
     @include text(
       $font-small-14,
       $weight-300,
@@ -96,6 +97,10 @@
       $color-red-errors
     );
     margin: 5px 0 0;
+  }
+
+  &__errorVisible {
+    display: inline;
   }
 
   &__password {
@@ -137,7 +142,7 @@
     cursor: pointer;
     border: none;
     border-radius: 15px;
-    min-height: 50px;
+    max-height: 50px;
     background-color: $background-color-button-default;
     @include text(
       $font-medium-button-24,
@@ -172,6 +177,89 @@
     }
     &:active {
       color: $color-link-pressed;
+    }
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .login {
+    max-width: 345px;
+    padding: 114px 0 50px;
+    &__loginContainer {
+      padding: 25px 20px;
+    }
+    &__title {
+      @include text(
+        $mobile-font-18,
+        $weight-500,
+        $mobile-lh-18,
+        $color-blue-dark-title
+      );
+    }
+    &__inputName {
+      @include text(
+        $mobile-font-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-blue-dark-title
+      );
+    }
+    &__resetLink {
+      @include text(
+        $mobile-font-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-link-main
+      );
+    }
+    &__input {
+      max-height: 41px;
+      @include text(
+        $mobile-font-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-blue-dark-title
+      );
+    }
+    &__error {
+      @include text(
+        $mobile-font-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-red-errors
+      );
+    }
+    &__viewPassword {
+      top: 15px;
+    }
+    &__viewPasswordOn {
+      top: 15px;
+    }
+    &__button {
+      margin: 43px 0 0;
+      padding: 11px 131px;
+      border-radius: 10px;
+      max-height: 40px;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-button-text
+      );
+    }
+    &__registrLink {
+      padding: 11px 80px;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-link-main
+      );
     }
   }
 }

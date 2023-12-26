@@ -1,0 +1,386 @@
+@import './../../../vendor/_varibles.scss';
+
+.form {
+  max-width: 1320px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(150px, 240px) repeat(2, minmax(325px, 510px));
+  column-gap: 30px;
+  row-gap: 20px;
+
+  &__logoTitle {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    @include text(
+      $font-small-14,
+      $weight-500,
+      $line-height-small-14,
+      $color-blue-text
+    );
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-image: url('../../../images/camera-icon.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      padding-right: 5px;
+    }
+  }
+
+  &__logoWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  &__examplesTitle {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    @include text(
+      $font-small-14,
+      $weight-500,
+      $line-height-small-14,
+      $color-blue-text
+    );
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-image: url('../../../images/add-icon-big.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      padding-right: 5px;
+      // vertical-align: middle;
+    }
+  }
+
+  &__required {
+    @include text(
+      $font-small-14,
+      $weight-300,
+      $line-height-small-14,
+      $color-red-errors
+    );
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    padding: 0 0 23px;
+
+    &_type_image {
+      position: relative;
+      background-color: $background-button-input-category;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 240px;
+      height: 240px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &_type_name {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    &_type_category {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      position: relative;
+    }
+
+    &_type_exaples {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+  }
+
+  &__inputTitle {
+    padding: 0 0 0 10px;
+    @include text(
+      $font-small-14,
+      $weight-300,
+      $line-height-small-14,
+      $color-blue-dark-title
+    );
+  }
+
+  &__inputGroup {
+    padding: 0;
+    border: none;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+    row-gap: 20px;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 48px;
+    border: $border-main;
+    border-radius: 10px;
+    padding: 0 0 0 20px;
+    background-color: $background-input;
+    @include text(
+      $font-small-14,
+      $weight-300,
+      $line-height-small-14,
+      $color-blue-input-text
+    );
+
+    &_type_image {
+      width: 0;
+      visibility: hidden;
+      position: absolute;
+      padding: 0;
+    }
+
+    &_type_desc {
+      height: 100%;
+      width: 100%;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+
+    &_type_examplesContainer {
+      min-height: 200px;
+      background-color: $background-button-input-category;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &::placeholder {
+        @include text(
+          $font-small-14,
+          $weight-300,
+          $line-height-small-14,
+          $input-placeholder
+        );
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &_type_examples {
+      visibility: hidden;
+      position: absolute;
+      width: 100%;
+      padding: 0;
+    }
+
+    &::placeholder {
+      @include text(
+        $font-small-14,
+        $weight-300,
+        $line-height-small-14,
+        $input-placeholder
+      );
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__deleteBtn {
+    border: none;
+    background-color: $background-white;
+    text-align: end;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    @include text(
+      $font-medium-24,
+      $weight-400,
+      $line-height-medium-24,
+      $color-red-delete
+    );
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url('../../../images/trash-icon.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding-right: 10px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+    &__required {
+      @include text(
+        $font-small-14,
+        $weight-300,
+        $line-height-small-14,
+        $color-red-errors
+      );
+    }
+    &__imgContainer {
+      margin: 30px 0 0;
+      display: flex;
+      align-items: center;
+    }
+    &__label {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+      padding: 0 0 28px;
+      &:first-child {
+        margin-top: 30px;
+      }
+      &_type_image {
+        margin-right: 10px;
+        width: 100px;
+        height: 100px;
+      }
+    }
+    &__text {
+      align-self: center;
+      @include text(
+        $font-small-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-blue-dark-title
+      );
+    }
+    &__inputGroup {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0;
+    }
+    &__inputTitle {
+      @include text(
+        $mobile-font-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-blue-dark-title
+      );
+    }
+    &__input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 18px;
+      @include text(
+        $mobile-font-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-blue-input-text
+      );
+      &_type_desc {
+        min-height: 125px;
+      }
+      &_type_examplesContainer {
+        min-height: 40px;
+      }
+    }
+    &__examplesTitle {
+      display: flex;
+      align-items: center;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-blue-text
+      );
+      &::before {
+        background-image: url(../../../images/images-for-mobile/buttonExamples/buttonExamples.svg);
+        margin-right: 10px;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__continueButton {
+      margin-bottom: 10px;
+      border: none;
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      background-color: $background-color-button-default;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-button-text
+      );
+      &:hover {
+        background-color: $background-color-button-hover;
+      }
+      &:active {
+        background-color: $background-color-button-pressed;
+      }
+    }
+
+    &__deleteBtn {
+      margin-bottom: 25px;
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-red-delete
+      );
+      &::before {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

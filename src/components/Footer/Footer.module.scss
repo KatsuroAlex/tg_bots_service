@@ -1,7 +1,6 @@
 @import './../../vendor/_varibles';
 
 .footer {
-  flex-shrink: 0;
   border-top: 0.5px solid #3b7dd6;
   padding: 40px 0 40px;
   background-color: $background-white;
@@ -10,13 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  &__addressСontainer {
-    display: flex;
-    align-items: center;
-    height: 65px;
-    border-right: 1px solid #3b7dd6;
   }
 
   &__logoLink {
@@ -33,6 +25,9 @@
     &:active {
       background-image: url(../../images/logo-state-pressed-min.svg);
     }
+    &_title {
+      display: none;
+    }
   }
 
   &__contacts {
@@ -40,6 +35,10 @@
     flex-direction: column;
     align-items: flex-start;
     padding-right: 180px;
+    border-right: 1px solid #3b7dd6;
+    &_title {
+      display: none;
+    }
     &_container {
       display: flex;
       align-items: center;
@@ -90,6 +89,107 @@
       }
       &:not(:last-child) {
         margin-right: 100px;
+      }
+    }
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 35px;
+    border-top: none;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    @include shadowBackground($background-white, $mobile-box-shadow-footer);
+    &__container {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    &__logoLink {
+      order: 1;
+      display: flex;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      margin: 0 0 50px 0;
+      background-size: 40px 40px;
+      background: url(../../images/images-for-mobile/logo/logoMobile.svg) center
+        no-repeat;
+      &:hover {
+        background-image: url(../../images/images-for-mobile/logo/logoMobile-hover.svg);
+      }
+      &:active {
+        background-image: url(../../images/images-for-mobile/logo/logoMobile-pressed.svg);
+      }
+      &_title {
+        display: block;
+        padding-left: 55px;
+        @include text(
+          $mobile-font-24,
+          $weight-500,
+          $mobile-lh-24,
+          $color-blue-dark-title
+        );
+      }
+    }
+    &__contacts {
+      order: 3;
+      align-items: flex-start;
+      padding-right: 0;
+      border-right: none;
+      &_title {
+        display: flex;
+        margin-bottom: 30px;
+        @include text(
+          $mobile-font-18,
+          $weight-500,
+          $mobile-lh-18,
+          $color-blue-dark-title
+        );
+      }
+      &_container {
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+      &_image {
+        width: 22px;
+        height: 22px;
+        margin-right: 11px;
+      }
+      &_link {
+        @include text(
+          $mobile-font-16,
+          $weight-300,
+          $mobile-lh-small-16,
+          $color-link-main
+        );
+      }
+    }
+    &__link {
+      order: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%;
+      padding-left: 0;
+      margin-right: 0;
+      margin-bottom: 50px;
+      &_navigate {
+        @include text(
+          $mobile-font-16,
+          $weight-300,
+          $mobile-lh-small-16,
+          $color-link-main
+        );
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 25px;
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000/';
+const BASE_URL = 'http://80.87.96.7/api';
 
 const handleResponse = (res) => {
   if (res.ok) {
@@ -24,7 +24,7 @@ const request = (endpoint, method, body) => {
 };
 
 export const getBots = () => {
-  return request('bots', 'GET');
+  return request('bots/', 'GET');
 };
 
 /* const getBotsUsers = () => {

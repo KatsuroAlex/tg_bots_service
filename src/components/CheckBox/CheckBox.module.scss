@@ -38,7 +38,7 @@
   &__input:not(:disabled):not(:checked) + &__text:hover::before {
     border: $border-main;
     background-color: $background-input;
-    background-image: url('../../images/checkmark-hover.svg');
+    background-image: url(../../images/checkmark-hover.svg);
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -49,12 +49,31 @@
 
   &__input:checked + &__text::before {
     border: 1px solid #3b7dd6;
-    background-image: url('../../images/checkmark.svg');
+    background-color: #3b7dd6;
+    background-image: url(../../images/checkmark-pressed.svg);
     background-repeat: no-repeat;
     background-position: center;
   }
 
   &__input:disabled + &__text::before {
     background: #e8f0fa;
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .checkbox {
+    &__text {
+      @include text($mobile-font-16, $weight-300, $mobile-lh-small-16, #000);
+    }
+    &__text::before {
+      content: '';
+      width: 32px;
+      height: 32px;
+    }
   }
 }

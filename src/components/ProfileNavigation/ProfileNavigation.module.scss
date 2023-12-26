@@ -1,0 +1,108 @@
+@import '../../vendor/varibles';
+
+.profileNavigation {
+  min-width: 330px;
+  margin-top: 0;
+  padding: 200px 40px 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__profileContainer {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  &__name {
+    margin: 20px 0 0;
+    text-align: center;
+    @include text(
+      $font-h2-36,
+      $weight-600,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+  }
+
+  &__navigation {
+    margin: 80px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__link {
+    margin: 0;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 15px 0 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &_user {
+      background-image: url('../../images/user.svg');
+      &_activ {
+        background-image: url('../../images/user-activ.svg');
+      }
+    }
+    &_purchases {
+      background-image: url('../../images/icon-purchases.svg');
+      &_activ {
+        background-image: url('../../images/icon-purchases-activ.svg');
+      }
+    }
+    &_favourites {
+      background-image: url('../../images/icon-love.svg');
+      &_activ {
+        background-image: url('../../images/icon-love-activ.svg');
+      }
+    }
+    &_faq {
+      background-image: url('../../images/icon-faq.svg');
+      &_activ {
+        background-image: url('../../images/icon-faq-activ.svg');
+      }
+    }
+    &_seller {
+      background-image: url('../../images/icon-seller.svg');
+      &_activ {
+        background-image: url('../../images/icon-seller-activ.svg');
+      }
+    }
+    &_exit {
+      background-image: url('../../images/icon-exit.svg');
+    }
+  }
+
+  &__textLink {
+    margin: 0;
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+  }
+
+  &__textLink_activ {
+    @include text(
+      $font-medium-24,
+      $weight-600,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+  }
+}

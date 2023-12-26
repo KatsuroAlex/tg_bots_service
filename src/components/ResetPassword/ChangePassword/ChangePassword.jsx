@@ -1,11 +1,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import accepted from '../../../images/accepted-min.svg';
+import SuccessBlock from '../../SuccessBlock/SuccessBlock';
+import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 
 import styles from './ChangePassword.module.scss';
-
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 
 function ChangePassword({ comeBack }) {
   const navigate = useNavigate();
@@ -95,150 +93,126 @@ function ChangePassword({ comeBack }) {
 
   return (
     <section className={styles.change}>
-      <div
-        className={`${styles.change__container} ${
-          isPasswordChanged ? styles.change__success : ''
-        }`}
-      >
-        {isPasswordChanged ? (
-          <>
-            <div className={styles.change__success}>
-              <img
-                className={styles.change__successPicture}
-                src={accepted}
-                alt='Глалочка'
-              />
-              <h3 className={styles.change__successTitle}>
-                Пароль успешно изменен!
-              </h3>
-            </div>
+      {isPasswordChanged ? (
+        <SuccessBlock
+          title='Пароль успешно изменен!'
+          textButton='Войти'
+          path='/login'
+        />
+      ) : (
+        <div className={styles.change__container}>
+          <div className={styles.change__title}>
             <button
-              className={styles.change__formButton}
+              className={styles.change__buttonTitle}
               type='button'
-              aria-label='Кнопка вернуться к авторизации'
-              onClick={() => navigate('/login')}
-            >
-              Назад к авторизации
-            </button>
-          </>
-        ) : (
-          <>
-            <div className={styles.change__title}>
+              aria-label='Кнопка назад'
+              onClick={comeBack}
+            />
+            <h3 className={styles.change__textTitle}>Введите новый пароль</h3>
+          </div>
+          <form
+            className={styles.change__form}
+            noValidate
+            onSubmit={sendNewPassword}
+          >
+            <fieldset className={styles.change__formInput_container}>
+              <label
+                htmlFor='password'
+                className={styles.change__formInput_text}
+              >
+                Новый пароль
+                <input
+                  className={styles.change__formInput}
+                  id='password'
+                  name='password'
+                  type={isPasswordVisible.password ? 'text' : 'password'}
+                  placeholder='Введите новый пароль'
+                  defaultValue={values.password || ''}
+                  minLength={8}
+                  maxLength={16}
+                  onFocus={() => setFocusedField('password')}
+                  onBlur={(e) => {
+                    handleChange(e);
+                    handleBlur();
+                  }}
+                  required
+                />
+              </label>
               <button
-                className={styles.change__buttonTitle}
+                className={`${styles.change__formButton_look} ${
+                  isPasswordVisible.password
+                    ? styles.change__formButton_look_open
+                    : styles.change__formButton_look_close
+                }`}
                 type='button'
-                aria-label='Кнопка назад'
-                onClick={comeBack}
+                aria-label='Кнопка скрыть/показать пароль'
+                onClick={() => handlePasswordVisibility('password')}
               />
-              <h3 className={styles.change__textTitle}>Введите новый пароль</h3>
-            </div>
-            <form
-              className={styles.change__form}
-              noValidate
-              onSubmit={sendNewPassword}
-            >
-              <fieldset className={styles.change__formInput_container}>
-                <label
-                  htmlFor='password'
-                  className={styles.change__formInput_text}
-                >
-                  Новый пароль
-                  <input
-                    className={styles.change__formInput}
-                    id='password'
-                    name='password'
-                    type={isPasswordVisible.password ? 'text' : 'password'}
-                    placeholder='Новый пароль (от 8 до 16 символов)'
-                    defaultValue={values.password || ''}
-                    minLength={8}
-                    maxLength={16}
-                    onFocus={() => setFocusedField('password')}
-                    onBlur={(e) => {
-                      handleChange(e);
-                      handleBlur();
-                    }}
-                    required
-                  />
-                </label>
-                <button
-                  className={`${styles.change__formButton_look} ${
-                    isPasswordVisible.password
-                      ? styles.change__formButton_look_open
-                      : styles.change__formButton_look_close
-                  }`}
-                  type='button'
-                  aria-label='Кнопка скрыть/показать пароль'
-                  onClick={() => handlePasswordVisibility('password')}
+              <span className={styles.change__formInput_error}>
+                {errors.password}
+              </span>
+            </fieldset>
+            <fieldset className={styles.change__formInput_container}>
+              <label className={styles.change__formInput_text} htmlFor='repeat'>
+                Повторите пароль
+                <input
+                  className={styles.change__formInput}
+                  id='repeat'
+                  name='repeat'
+                  type={isPasswordVisible.repeat ? 'text' : 'password'}
+                  placeholder='Повторите новый пароль'
+                  minLength={8}
+                  maxLength={16}
+                  defaultValue={values.repeat || ''}
+                  onFocus={() => setFocusedField('repeat')}
+                  onBlur={(e) => {
+                    handleChange(e);
+                    handleBlur();
+                  }}
+                  required
                 />
-                <span className={styles.change__formInput_error}>
-                  {errors.password}
-                </span>
-              </fieldset>
-              <fieldset className={styles.change__formInput_container}>
-                <label
-                  className={styles.change__formInput_text}
-                  htmlFor='repeat'
-                >
-                  Повторите пароль
-                  <input
-                    className={styles.change__formInput}
-                    id='repeat'
-                    name='repeat'
-                    type={isPasswordVisible.repeat ? 'text' : 'password'}
-                    placeholder='Повторите пароль'
-                    minLength={8}
-                    maxLength={16}
-                    defaultValue={values.repeat || ''}
-                    onFocus={() => setFocusedField('repeat')}
-                    onBlur={(e) => {
-                      handleChange(e);
-                      handleBlur();
-                    }}
-                    required
-                  />
-                </label>
-                <button
-                  className={`${styles.change__formButton_look} ${
-                    isPasswordVisible.repeat
-                      ? styles.change__formButton_look_open
-                      : styles.change__formButton_look_close
-                  }`}
-                  type='button'
-                  aria-label='Кнопка скрыть/показать пароль'
-                  onClick={() => handlePasswordVisibility('repeat')}
-                />
-                <span className={styles.change__formInput_error}>
-                  {errors.repeat || errors.common}
-                </span>
-              </fieldset>
+              </label>
               <button
-                className={`${styles.change__formButton}
+                className={`${styles.change__formButton_look} ${
+                  isPasswordVisible.repeat
+                    ? styles.change__formButton_look_open
+                    : styles.change__formButton_look_close
+                }`}
+                type='button'
+                aria-label='Кнопка скрыть/показать пароль'
+                onClick={() => handlePasswordVisibility('repeat')}
+              />
+              <span className={styles.change__formInput_error}>
+                {errors.repeat || errors.common}
+              </span>
+            </fieldset>
+            <button
+              className={`${styles.change__formButton}
                   ${
                     isValid && passwordsMatch
                       ? styles.change__formButton
                       : styles.change__formButton_disable
                   }`}
-                type='button'
-                aria-label='Кнопка сменить пароль'
-                disabled={!isValid || !passwordsMatch}
-                onClick={sendNewPassword}
-              >
-                Сменить пароль
-              </button>
-              <button
-                className={styles.change__cancelButton}
-                type='button'
-                aria-label='Кнопка отменить'
-                onClick={() => {
-                  navigate('/');
-                }}
-              >
-                Отменить
-              </button>
-            </form>
-          </>
-        )}
-      </div>
+              type='button'
+              aria-label='Кнопка сменить пароль'
+              disabled={!isValid || !passwordsMatch}
+              onClick={sendNewPassword}
+            >
+              Сменить пароль
+            </button>
+            <button
+              className={styles.change__cancelButton}
+              type='button'
+              aria-label='Кнопка отменить'
+              onClick={() => {
+                navigate('/');
+              }}
+            >
+              Отменить
+            </button>
+          </form>
+        </div>
+      )}
     </section>
   );
 }

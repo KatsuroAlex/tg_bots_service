@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CheckBox.module.scss';
 
-function CheckBox({ onChange }) {
+function CheckBox({ onChange, title }) {
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={styles.checkbox}>
@@ -11,9 +11,7 @@ function CheckBox({ onChange }) {
         required
         onChange={onChange}
       />
-      <span className={styles.checkbox__text}>
-        Согласен на обработку персональных данных
-      </span>
+      <span className={styles.checkbox__text}>{title}</span>
     </label>
   );
 }

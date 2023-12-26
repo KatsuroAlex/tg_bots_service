@@ -31,6 +31,7 @@ $font-h1-60: 60px;
 $font-h2-36: 36px;
 $font-medium-24: 24px;
 $font-small-14: 14px;
+$font-18: 18px;
 $font-footer-18: 18px;
 $font-payment-18: 18px;
 $font-medium-button-24: 24px;
@@ -43,13 +44,21 @@ $line-height-medium-24: 30px;
 $line-height-small-14: 17.5px;
 $line-height-footer-18: 22.5px;
 $line-height-payment-18: 22.5px;
+$line-height-normal: normal;
+$line-height-150: 150%;
+$line-height-18: 22.5px;
 
 /* COLORS */
 $color-blue-text: #3b7dd6;
+$color-white-text: #fff;
 $color-blue-dark-title: #183357;
 $color-gray-text: #35383b;
 $color-red-errors: #e44f2f;
+$color-red-delete: #e44f2f;
 $color-blue-input-text: #84a7d5;
+$color-label-profile-text: #8ea1b5;
+$color-black-input: #000;
+$color-grey-text: #8ea1b5;
 
 /* colors-link */
 $color-link-main: #3b7dd6;
@@ -61,6 +70,12 @@ $background-color-button-default: #3b7dd6;
 $background-color-button-hover: #2f5e9d;
 $background-color-button-pressed: #183357;
 $background-color-button-disable: #9cbdea;
+
+$background-color-button2-default: #d3e2f7;
+$background-color-button2-hover: #acc6eb;
+$background-color-button2-pressed: #5a8cd2;
+$background-color-button2-disable: #e8f0fa;
+
 $color-button-text: #f8fafc;
 $color-button-text-white: #fff;
 $color-blue-button-text: #3b7dd6;
@@ -86,11 +101,44 @@ $box-shadow-category:
 /* INPUTS */
 $border-main: 1px solid #d3e2f7;
 $border-active: 1px solid #183357;
+$input-placeholder: #84a7d5;
 
-body {
-  background: url(../images/Background.jpg) no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+/* SIZE MOBILE */
+/* font size */
+$mobile-font-32: 32px;
+$mobile-font-24: 24px;
+$mobile-font-18: 18px;
+$mobile-font-16: 16px;
+$mobile-font-14: 14px;
+
+/* line-heigh */
+$mobile-lh-32: 40px;
+$mobile-lh-24: 30px;
+$mobile-lh-18: 22.5px;
+$mobile-lh-small-16: 20px;
+$mobile-lh-small-14: 21px;
+
+/* colors-buttons */
+$mobile-header-background-button: #d3e2f7;
+$mobile-header-background-button-hover: #acc6eb;
+$mobile-header-background-button-pressed: #5a8cd2;
+$mobile-header-background-button-disable: #e8f0fa;
+
+/* $mobile-header-background-button: #fff;
+$mobile-header-background-button-hover: #acc6eb;
+$mobile-header-background-button-pressed: #5a8cd2;
+$mobile-header-background-button-disable: #e8f0fa; */
+
+/* substrate */
+$mobile-box-shadow-footer:
+  0px -5px 10px 0px rgba(142, 154, 169, 0.1),
+  0px -19px 19px 0px rgba(142, 154, 169, 0.09),
+  0px -42px 25px 0px rgba(142, 154, 169, 0.05),
+  0px -75px 30px 0px rgba(142, 154, 169, 0.01),
+  0px -116px 33px 0px rgba(142, 154, 169, 0);
+$mobile-box-shadow-category:
+  0px 1px 3px 0px rgba(106, 141, 190, 0.1),
+  0px 6px 6px 0px rgba(106, 141, 190, 0.09),
+  0px 13px 8px 0px rgba(106, 141, 190, 0.05),
+  0px 23px 9px 0px rgba(106, 141, 190, 0.01),
+  0px 35px 10px 0px rgba(106, 141, 190, 0);

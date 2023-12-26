@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:3000/';
+/* eslint-disable camelcase */
+const BASE_URL = 'http://80.87.96.7/api';
 
 const handleResponse = (res) => {
   if (res.ok) {
@@ -7,9 +8,19 @@ const handleResponse = (res) => {
   return Promise.reject(res.status);
 };
 
-const request = (endpoint, method, body) => {
+const request = (endpoint, method, body, jwt) => {
+  const initHeaders = jwt
+    ? {
+        'Content-Type': 'application/json',
+        Authorization: `Token ${jwt}`,
+      }
+    : {
+        'Content-Type': 'application/json',
+      };
+
   const fetchInit = {
     method,
+    headers: initHeaders,
   };
 
   return fetch(
@@ -23,8 +34,12 @@ const request = (endpoint, method, body) => {
   ).then(handleResponse);
 };
 
-export const getUserInfo = () => {
-  return request('users/me', 'GET');
+export const getUsersList = (email) => {
+  return request('users', 'GET', email);
+};
+
+export const getUserInfo = (token) => {
+  return request('users/me', 'GET', null, token);
 };
 
 export const updateUserInfo = (userData) => {
@@ -32,17 +47,48 @@ export const updateUserInfo = (userData) => {
 };
 
 export const deleteUser = (userData) => {
-  return request('users/me', 'DELETE', userData);
+  return request('users/me/', 'DELETE', userData);
 };
 
+/* 
+ФУНКЦИЯ РАБОТАЕТ, НО НЕ ПОКАЗЫВАЕТ OTP В КОНСОЛЬ
 export const resetPassword = (email) => {
-  return request('users/reset_password', 'POST', email);
-};
+  console.log('email', email);
+  return request('users/reset_password/', 'POST', { email });
+}; */
 
-export const setPassword = (userData) => {
-  return request('users/set_password', 'POST', userData);
-};
+export function resetPassword(email) {
+  console.log('email', email);
+  return fetch(`${BASE_URL}/users/reset_password/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }),
+  });
+}
+
+/* export const setPassword = (new_password, current_password) => {
+  console.log('new_password', new_password);
+  console.log('current_password', current_password);
+  return request('users/set_password/', 'POST', {
+    new_password,
+    current_password,
+  });
+}; */
+
+export function setPassword(new_password, current_password) {
+  console.log('new_password', new_password);
+  console.log('current_password', current_password);
+  return fetch(`${BASE_URL}/users/set_password/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ new_password, current_password }),
+  });
+}
 
 export const getShoppingCartUser = (userId, userData) => {
-  return request(`users/${userId}/shopping_cart`, 'POST', userData);
+  return request(`users/${userId}/shopping_cart/`, 'POST', userData);
 };

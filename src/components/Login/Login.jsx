@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import { PATTERN_EMAIL } from '../../utils/constants';
 
 function Login({ onLogin, loggedIn }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation({});
@@ -10,6 +11,8 @@ function Login({ onLogin, loggedIn }) {
   const [passwardEyeClass, setPasswardEyeClass] = React.useState(
     `${styles.login__viewPassword}`
   );
+  const [isErrorLogin, setIsErrorLogin] = React.useState(false);
+  const [isErrorPassward, setIsErrorPassward] = React.useState(false);
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -37,19 +40,29 @@ function Login({ onLogin, loggedIn }) {
       <div className={styles.login__loginContainer}>
         <h2 className={styles.login__title}>Войдите, чтобы продолжить</h2>
         <form className={styles.login__form} noValidate onSubmit={handleSubmit}>
-          <h3 className={styles.login__inputName}>Логин или email</h3>
+          <h3 className={styles.login__inputName}>Email</h3>
           <input
             className={styles.login__input}
-            placeholder='Логин или email'
+            placeholder='Введите email'
             type='text'
-            id='username'
-            name='username'
+            id='email'
+            name='email'
             required
-            value={values.username || ''}
+            value={values.email || ''}
+            pattern={PATTERN_EMAIL}
             onChange={handleChange}
             minLength='2'
+            onBlur={() => {
+              setIsErrorLogin(true);
+            }}
           />
-          <span className={styles.login__error}>{errors.username}</span>
+          <span
+            className={`${styles.login__error} ${
+              isErrorLogin && styles.login__errorVisible
+            }`}
+          >
+            {errors.email}
+          </span>
           <div className={styles.login__inputNameContainer}>
             <h3 className={styles.login__inputName}>Пароль</h3>
             <Link to='/reset-password' className={styles.login__resetLink}>
@@ -59,7 +72,7 @@ function Login({ onLogin, loggedIn }) {
           <div className={styles.login__password}>
             <input
               className={styles.login__input}
-              placeholder='Пароль'
+              placeholder='Введите пароль'
               type={type}
               id='password'
               name='password'
@@ -68,6 +81,9 @@ function Login({ onLogin, loggedIn }) {
               maxLength='16'
               value={values.password || ''}
               onChange={handleChange}
+              onBlur={() => {
+                setIsErrorPassward(true);
+              }}
             />
             <div
               className={passwardEyeClass}
@@ -78,7 +94,13 @@ function Login({ onLogin, loggedIn }) {
               aria-label='key'
             />
           </div>
-          <span className={styles.login__error}>{errors.password}</span>
+          <span
+            className={`${styles.login__error} ${
+              isErrorPassward && styles.login__errorVisible
+            }`}
+          >
+            {errors.password}
+          </span>
           <button className={styles.login__button} disabled={!isValid}>
             Войти
           </button>

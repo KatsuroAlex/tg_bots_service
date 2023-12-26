@@ -2,8 +2,10 @@
 
 .header {
   position: fixed;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 0%);
+  max-width: 1920px;
   width: 100%;
   @include shadowBackground($background-white, $box-shadow-main);
   z-index: 100;
@@ -52,10 +54,9 @@
     }
     &_input {
       flex-grow: 1;
-      padding: 11px 20px 11px 50px;
+      padding: 11px 20px;
       outline: none;
-      background: url(../../images/search-min.svg) no-repeat;
-      background-position: 20px 10px;
+      max-height: 40px;
       @include text(
         $font-small-14,
         $weight-300,
@@ -63,11 +64,108 @@
         $color-blue-dark-title
       );
       @include input($border-main, $background-bots-main);
+      border-right: none;
+      border-radius: 0;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
       &:focus {
-        @include input($border-active, $background-bots-main);
+        border: 1px solid #183357;
+        border-right: none;
       }
       &::placeholder {
         color: $color-blue-input-text;
+      }
+    }
+    &_input:focus + &_button {
+      border: 1px solid #183357;
+      border-left: none;
+    }
+    &_button {
+      width: 40px;
+      height: 40px;
+      background: url(../../images/search-min.svg) no-repeat center;
+      background-color: #d3e2f7;
+      border: none;
+      outline: none;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      cursor: pointer;
+      transition: background-image 0.3s ease;
+      &:hover {
+        background-image: url(../../images/search-min-hover.svg);
+      }
+      &:active {
+        background-image: url(../../images/search-min-pressed.svg);
+      }
+    }
+    &__openPopup {
+      display: none;
+    }
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .header {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    &__container {
+      margin: 12px 0;
+    }
+    &__logo {
+      margin-left: 35px;
+      &_link {
+        width: 40px;
+        height: 40px;
+        background-size: 40px 40px;
+        margin-right: 0;
+        background: url(../../images/images-for-mobile/logo/logoMobile.svg)
+          center no-repeat;
+        &:hover {
+          background-image: url(../../images/images-for-mobile/logo/logoMobile-hover.svg);
+        }
+        &:active {
+          background-image: url(../../images/images-for-mobile/logo/logoMobile-pressed.svg);
+        }
+      }
+      &_title {
+        display: none;
+      }
+    }
+    // TODO кнопку с выпадающем окном
+    &__search {
+      &_form {
+        display: none;
+      }
+    }
+
+    &__forMobileSize {
+      display: flex;
+    }
+
+    &__openPopup {
+      display: flex;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border: none;
+      outline: none;
+      background: url(../../images/images-for-mobile/search/search-sizeMobile.svg)
+        no-repeat center;
+      background-color: inherit;
+      border-radius: 100px;
+      margin-right: 18px;
+      cursor: pointer;
+      transition: background-image 0.3s ease;
+      &:hover {
+        background-image: url(../../images/images-for-mobile/search/search-sizeMobile-hover.svg);
+      }
+      &:active {
+        background-image: url(../../images/images-for-mobile/search/search-sizeMobile-pressed.svg);
       }
     }
   }

@@ -1,4 +1,4 @@
-const getCategoryName = (inputString) => {
+export const getCategoryName = (inputString) => {
   const parts = inputString.split(': ');
 
   if (parts.length === 2 && parts[0] === 'Категория') {
@@ -8,4 +8,6 @@ const getCategoryName = (inputString) => {
   return 'Invalid input format';
 };
 
-export default getCategoryName;
+export const wrapAuthorName = (author) => {
+  return `@${author}`;
+};

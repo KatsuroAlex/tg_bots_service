@@ -72,3 +72,69 @@
   width: 0;
   transition: width 0.5s;
 }
+
+.countOfReviews {
+  @include text(
+    $font-footer-18,
+    $weight-300,
+    $line-height-footer-18,
+    $color-gray-text
+  );
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .rating {
+    margin-top: 0;
+    &__title {
+      display: none;
+    }
+    &__readReviews {
+      height: 40px;
+      padding: 11px 14px;
+      background-color: inherit;
+      margin-left: auto;
+      border: none;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-blue-text
+      );
+    }
+  }
+  .left {
+    flex: 1;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  .averageRating {
+    margin-right: 5px;
+    @include text(
+      $mobile-font-24,
+      $weight-500,
+      $mobile-lh-24,
+      $color-gray-text
+    );
+  }
+  .stars {
+    margin-top: 0;
+    display: flex;
+  }
+  .star {
+    font-size: 21px;
+    color: $color-gray-text;
+    margin-right: 3px;
+  }
+  .right {
+    display: none;
+  }
+  .countOfReviews {
+    display: none;
+  }
+}

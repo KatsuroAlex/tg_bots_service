@@ -9,3 +9,22 @@
     /* object-fit: cover; */
   }
 }
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .cardExample {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 30px;
+    &__pic {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+  }
+}

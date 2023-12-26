@@ -1,6 +1,8 @@
 @import './../../vendor/_varibles';
 
 .returnElement {
+  display: inline-block;
+
   &__btn {
     background-image: url('../../images/back-icon.svg');
     background-repeat: no-repeat;
@@ -48,5 +50,33 @@
       $line-height-small-14,
       $color-gray-text
     );
+  }
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .returnElement {
+    margin: 0 35px;
+    &__btn {
+      background-image: url(../../images/back-left-lg-min.svg);
+      &:hover {
+        background-image: url(../../images/back-left-lg-hover-min.svg);
+      }
+      &:active {
+        background-image: url(../../images/back-left-lg-pressed-min.svg);
+      }
+    }
+    &__title {
+      text-align: start;
+      @include text(
+        $mobile-font-32,
+        $weight-500,
+        $mobile-lh-32,
+        $color-blue-dark-title
+      );
+    }
+    &__ref {
+      display: none;
+    }
   }
 }

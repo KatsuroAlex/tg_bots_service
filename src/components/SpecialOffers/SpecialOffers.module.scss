@@ -1,0 +1,143 @@
+@import './../../vendor/_varibles';
+
+.special {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 150px 165px 80px;
+  min-height: 100vh;
+  position: relative;
+
+  &__title {
+    margin-top: 40px;
+    @include text(
+      $font-h1-60,
+      $weight-600,
+      $line-height-h1,
+      $color-blue-dark-title
+    );
+  }
+
+  &__banner {
+    position: absolute;
+    left: 0;
+    margin-bottom: 80px;
+    width: 100%;
+    height: 442px;
+  }
+
+  &__listContainer {
+    padding-top: 521px;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: flex-start;
+  }
+}
+
+.emptyList {
+  padding-top: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_title {
+    margin-bottom: 40px;
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-medium-24,
+      $color-blue-button-text
+    );
+  }
+  &_button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-medium-24,
+      $color-button-text
+    );
+    background-color: $background-color-button-default;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+    &:hover {
+      background-color: $background-color-button-hover;
+    }
+    &:active {
+      background-color: $background-color-button-pressed;
+    }
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .special {
+    padding: 114px 0 50px;
+    &__title {
+      display: none;
+    }
+    &__banner {
+      margin: 50px 0 0;
+      position: static;
+      height: 308px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 0;
+    }
+    &__listContainer {
+      margin: 50px 15px 0;
+      padding: 15px;
+      border-radius: 20px;
+      background-color: $background-white;
+      box-shadow: $box-shadow-main;
+    }
+    &__list {
+      list-style: none;
+      gap: 19px;
+    }
+  }
+
+  .emptyList {
+    padding: 0;
+    margin: 50px 0 0;
+    background-color: $background-white;
+    box-shadow: $box-shadow-main;
+    border-radius: 20px;
+    &_title {
+      text-align: center;
+      padding: 25px 20px 0;
+      margin-bottom: 40px;
+      @include text(
+        $mobile-font-16,
+        $weight-300,
+        $mobile-lh-small-16,
+        $color-blue-dark-title
+      );
+    }
+    &_button {
+      margin: 0 0 25px;
+      padding: 11px 80px;
+      border-radius: 10px;
+      max-height: 40px;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-button-text
+      );
+    }
+  }
+}

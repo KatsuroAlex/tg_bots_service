@@ -160,3 +160,73 @@
     }
   }
 }
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .botBody {
+    flex-direction: column;
+    column-gap: 0;
+    margin: 0;
+    &__buttonSection {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__backButton {
+      border: none;
+      width: 40px;
+      height: 40px;
+      background: url(../../images/back-left-lg-min.svg) no-repeat center;
+    }
+    &__image {
+      border-radius: 10px;
+      margin: 10px 0 30px 0;
+      max-width: 305px;
+      width: 100%;
+      height: 305px;
+      object-fit: cover;
+    }
+    &__title {
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @include text(
+        $mobile-font-32,
+        $weight-500,
+        $mobile-lh-32,
+        $color-blue-dark-title
+      );
+    }
+    &__subtitle {
+      margin: 5px 0 0;
+      @include text(
+        $mobile-font-16,
+        $weight-300,
+        $mobile-lh-small-16,
+        $color-gray-text
+      );
+    }
+    &__description {
+      margin-top: 70px;
+      @include text(
+        $mobile-font-16,
+        $weight-300,
+        $mobile-lh-small-16,
+        $color-gray-text
+      );
+    }
+    &__showMoreButton {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin: 0 0 30px;
+      background-position: 37%;
+      padding: 10px 15px;
+    }
+  }
+}

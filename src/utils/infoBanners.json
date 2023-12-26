@@ -1,0 +1,26 @@
+{
+  "banners": [
+    {
+      "id": 1,
+      "title": "Осенняя распродажа",
+      "background": "linear-gradient(180deg, #b5d0f5 0%, #FEFEFF 100%)",
+      "imageUrl": "/images/special-banner/special-banner2.svg",
+      "imageUrlMobile": "/images/special-banner/banners-mobile/banner1.svg",
+      "description": "Осенняя распродажа пока что пустая!"
+    },
+    {
+      "id": 2,
+      "title": "Акция на боты для бизнеса",
+      "background": "#E9E6E6",
+      "imageUrl": "/images/special-banner/special-banner.svg",
+      "imageUrlMobile": "/images/special-banner/banners-mobile/banner2.svg"
+    },
+    {
+      "id": 3,
+      "title": "Осенний таксопад",
+      "background": "linear-gradient(180deg, #EEDD86 0%, #FEFEFF 100%)",
+      "imageUrl": "/images/special-banner/special-banner.svg",
+      "imageUrlMobile": "/images/special-banner/banners-mobile/banner3.svg"
+    }
+  ]
+}

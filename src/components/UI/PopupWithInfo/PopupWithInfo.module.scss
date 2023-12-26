@@ -1,0 +1,42 @@
+@import './../../../vendor/varibles';
+
+.popup {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  right: 27%;
+  box-shadow: $box-shadow-main;
+  background-color: $background-color-button-default;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition:
+    visibility 0.7s,
+    opacity 0.7s;
+
+  &__text {
+    @include text(
+      $font-medium-24,
+      $weight-400,
+      $line-height-medium-24,
+      $color-white-text
+    );
+    text-align: center;
+  }
+
+  &_active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .popup {
+    display: none;
+  }
+}

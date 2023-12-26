@@ -1,0 +1,100 @@
+@import './../../vendor/_varibles';
+
+.reviews {
+  margin: 100px auto auto 10px;
+
+  &__header {
+    margin-bottom: 40px;
+    @include text($font-h2-36, $weight-600, $line-height-h2, $color-gray-text);
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: row;
+    column-gap: 55px;
+    justify-content: space-between;
+    max-width: 1051px;
+    margin-bottom: 40px;
+  }
+
+  &__avatar {
+    margin-top: 30px;
+    margin-left: 60px;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+
+  &__feedbackSection {
+    width: 891px;
+    height: 362px;
+    background-color:#FFF;
+    border-radius: 20px;
+    padding-left: 40px;
+    @include shadowBackground($background-white, $box-shadow-main);
+  }
+
+  &__header_mini {
+    @include text(24px, 300, 30px, $color-gray-text);
+    padding-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  &__textarea {
+    height: 156px;
+    width: 811px;
+    background-color:#D3E2F7;
+    border-radius: 10px;
+    padding-top: 10px;
+    border-color: #84A7D5;
+    resize: none;
+  }
+
+  &__textarea::placeholder {
+    padding-top: 10px; 
+    padding-left: 15px; 
+    line-height: 1.5; 
+    color:#84A7D5;
+  }
+  
+  &__buttonsSection {
+    margin-top: 15px;
+    border-top: 1px solid #D3E2F7;
+    min-height: 60px;
+    max-width: 811px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: flex-end;
+  
+  }
+
+  &__addButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 0;
+    margin-top: auto;
+    background-color: #D3E2F7;
+    border: none;
+    color: #3B7DD6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__sendReviewButton {
+    width: 106px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 0;
+    margin-top: auto;
+    background-color: #3B7DD6;
+    border: none;
+    @include text(14px, 500, 17.5px, #fff);
+
+  }
+
+
+}

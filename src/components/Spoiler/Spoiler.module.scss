@@ -1,0 +1,83 @@
+@import '../../vendor/varibles';
+
+.spoiler {
+  margin: 0;
+  // padding: 223px 135px 140px;
+  // background: #fff;
+  width: 100%;
+
+  &__topic {
+    display: block;
+    padding: 40px 0 40px 0;
+    border-bottom: 0.5px solid #84a7d5;
+    background-color: #fff;
+  }
+
+  &__title {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px;
+    @include text(
+      $font-medium-24,
+      $weight-600,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+
+    &:before {
+      display: block;
+      background: url('../../images/faq_marker.svg') no-repeat;
+      transition: transform 0.5s;
+      content: ' ';
+      top: 8px;
+      right: 0;
+      width: 22px;
+      height: 15px;
+      margin-left: 20px;
+      position: absolute;
+    }
+  }
+
+  &__topic[open] > &__title:before {
+    transform: scale(1, -1);
+  }
+
+  &__text {
+    padding-top: 20px;
+    overflow: hidden;
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+  }
+
+  &__topic[open] div {
+    animation: spoiler 0.3s;
+  }
+  @keyframes spoiler {
+    0% {
+      max-height: 0;
+    }
+    100% {
+      max-height: 20em;
+    }
+  }
+
+  &__list {
+    margin-top: 10px;
+    margin-left: 33px;
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+  }
+
+  &__item {
+    padding-left: 2px;
+  }
+}

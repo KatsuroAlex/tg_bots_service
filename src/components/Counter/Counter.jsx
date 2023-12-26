@@ -19,21 +19,18 @@ function Counter({
   }
 
   return (
-    // <div className={styles.product__count }>
     <div className={styles.product__count} style={customStyles}>
       <button
-        className={styles.product__btnCount}
+        className={`${styles.product__btnCount} ${styles.product__btnCount_type_minus}`}
         onClick={handleDecreaseProduct}
-      >
-        -
-      </button>
+        aria-label='Уменьшить количество продукта'
+      />
       <span className={styles.product__countProperity}>{product.count}</span>
       <button
-        className={styles.product__btnCount}
+        className={`${styles.product__btnCount} ${styles.product__btnCount_type_plus}`}
         onClick={handleIncreaseProduct}
-      >
-        +
-      </button>
+        aria-label='Увеличить количество продукта'
+      />
     </div>
   );
 }

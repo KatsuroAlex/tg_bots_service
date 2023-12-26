@@ -7,7 +7,7 @@ import CarouselCategoriesLeftBtn from '../UI/CarouselCategoriesLeftBtn/CarouselC
 import CarouselCategoriesRightBtn from '../UI/CarouselCategoriesRightBtn/CarouselCategoriesRightBtn';
 import CategoriesTitleMainPage from '../CategoriesTitleMainPage/CategoriesTitleMainPage';
 
-const Categories = ({ categories }) => {
+const Categories = ({ categories, onFilter, mainPageActiveCategory }) => {
   const carouselRef = useRef(null);
 
   const responsive = {
@@ -30,8 +30,8 @@ const Categories = ({ categories }) => {
   };
 
   return (
-    <>
-      <CategoriesTitleMainPage />
+    <div className={styles.categoriesWrapper}>
+      <CategoriesTitleMainPage categories={categories} onFilter={onFilter} />
       <section className={styles.categories}>
         <div className={styles.categories__carouselWrapper}>
           <Carousel
@@ -44,7 +44,14 @@ const Categories = ({ categories }) => {
           >
             {categories.map((category) => (
               <div key={category.id}>
-                <Category name={category.name} imageUrl={category.imageUrl} />
+                <Category
+                  name={category.name}
+                  onFilter={onFilter}
+                  mainPageActiveCategory={mainPageActiveCategory}
+                  imageUrl={category.imageUrl}
+                  imageUrlHover={category.imageUrlHover}
+                  imageUrlActive={category.imageUrlActive}
+                />
               </div>
             ))}
           </Carousel>
@@ -52,7 +59,7 @@ const Categories = ({ categories }) => {
           <CarouselCategoriesRightBtn carouselRef={carouselRef} />
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

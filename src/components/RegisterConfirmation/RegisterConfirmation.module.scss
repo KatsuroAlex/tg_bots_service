@@ -1,0 +1,165 @@
+@import '../../vendor/varibles';
+
+.confirm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 40px;
+  padding: 20px 0 40px;
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    @include text(
+      $font-h2-36,
+      $weight-600,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 40px;
+    width: 1050px;
+  }
+
+  &__imageContainer {
+    position: relative;
+  }
+
+  &__image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    background-image: url('../../images/seller-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 140px;
+    right: 0;
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-normal,
+      $color-blue-dark-title
+    );
+  }
+
+  &__button {
+    width: 212px;
+    height: 50px;
+    margin: 40px auto 0;
+    border: none;
+    border-radius: 15px;
+    background-color: $background-color-button-default;
+    cursor: pointer;
+    transition: linear 0.3s;
+    @include text(
+      $font-medium-24,
+      $weight-400,
+      $line-height-medium-24,
+      $color-button-text
+    );
+
+    &:hover {
+      background-color: $background-color-button-hover;
+    }
+
+    &:active {
+      background-color: $background-color-button-pressed;
+    }
+
+    &:disabled {
+      background-color: $background-color-button-disable;
+    }
+  }
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .confirm {
+    row-gap: 30px;
+    padding: 30px 0 0;
+    &__title {
+      text-align: center;
+      @include text(
+        $mobile-font-18,
+        $weight-500,
+        $mobile-lh-18,
+        $color-blue-dark-title
+      );
+    }
+
+    &__image {
+      width: 120px;
+      height: 120px;
+    }
+    &__icon {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 80px;
+      right: 0;
+    }
+
+    &__info {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 30px;
+      width: 100%;
+    }
+    &__desc {
+      margin: 0;
+    }
+    &__text {
+      margin-bottom: 20px;
+      @include text(
+        $mobile-font-14,
+        $weight-300,
+        $mobile-lh-small-14,
+        $color-blue-dark-title
+      );
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__button {
+      width: 100%;
+      height: 40px;
+      margin: 0 0 25px;
+      border-radius: 10px;
+      @include text(
+        $mobile-font-14,
+        $weight-500,
+        $line-height-small-14,
+        $color-button-text
+      );
+    }
+  }
+}

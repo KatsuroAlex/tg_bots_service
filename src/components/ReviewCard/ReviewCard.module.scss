@@ -1,0 +1,171 @@
+@import './../../vendor/_varibles';
+
+.reviewCard {
+  max-width: 1050px;
+  width: 100%;
+  min-height: 490px;
+  border-radius: 20px;
+  @include shadowBackground($background-white, $box-shadow-main);
+  background-color: #fff;
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+  &__headerSection {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    margin: 0 60px 30px 60px;
+  }
+
+  &__userImg {
+    margin-top: 30px;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+
+  &__nameSectionS {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__nameSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 40px;
+  }
+
+  &__userName {
+    @include text($font-medium-24, $weight-300, $line-height-medium-24, $color-gray-text);
+  }
+
+  &__userDate {
+    @include text($font-footer-18, $weight-300, $line-height-footer-18, $color-gray-text);
+  }
+
+  &__stars {
+    margin-top: 30px;
+    display: flex;
+  }
+  
+  &__reviewText {
+    margin: 0 60px 0 140px;
+    @include text($font-medium-24, $weight-300, $line-height-medium-24, $color-gray-text);
+  }
+  
+  &__likeFeedbackSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 80%;
+    margin: 20px 60px 10px 160px;
+    min-height: 40px;
+    column-gap: 10px;
+  }
+
+  &__likeButton {
+    width: 69px;
+    height: 40px;
+    background-color: #D3E2F7;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+  }
+
+  &__feedbackButton {
+    width: 69px;
+    height: 40px;
+    background-color: #D3E2F7;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+
+  }
+  
+  &__iconContainer {
+
+  }
+
+  &__likeIcon {
+    color: black;
+  }
+
+  &__inputSection {
+    width: 90%;
+    min-height: 87px;
+    display: flex;
+    flex-direction: row;
+    margin: 30px 60px 40px 60px;
+    border-top: 1px solid #D3E2F7;
+    column-gap: 5px;
+    justify-content: space-between;
+
+  }
+
+  &__userImgSmall {
+    margin-top: 50px;
+    margin-left: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+  }
+
+  &__textarea {
+    max-width: 594px;
+    width: 100%;
+    min-height: 41px;
+    background-color: #D3E2F7;
+    border: none;
+    border-radius: 10px;
+    margin-top: 50px;
+    border-color: #84A7D5;
+    resize: none;
+  }
+
+  &__textarea::placeholder {
+    padding-top: 10px; 
+    padding-left: 15px; 
+    line-height: 1.5; 
+    color:#84A7D5;
+
+    @include text($font-small-14, $weight-300, 21px, #84A7D5);
+
+  }
+
+  &__addButton {
+    margin-top: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: #D3E2F7;
+    border: none;
+    border-radius: 10px;
+    color: #3B7DD6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__sendReviewButton {
+    margin-top: 50px;
+    width: 108px;
+    height: 40px;
+    background-color: #3B7DD6;
+    border: none;
+    border-radius: 10px;
+    // color: #fff;
+    @include text(14px, 500, 17.5px, #fff);
+
+  }
+}

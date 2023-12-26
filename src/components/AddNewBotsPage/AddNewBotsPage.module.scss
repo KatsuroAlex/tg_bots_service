@@ -1,0 +1,19 @@
+@import './../../vendor/_varibles.scss';
+
+.additionPage {
+  max-width: 1920px;
+  width: 100%;
+  padding: 150px 165px 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    background-color: $background-white;
+    box-shadow: $box-shadow-main;
+    border-radius: 20px;
+    padding: 100px 135px 91px;
+    box-sizing: border-box;
+  }
+}

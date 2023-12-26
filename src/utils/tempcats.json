@@ -3,92 +3,79 @@
     {
       "id": 1,
       "name": "Все",
-      "imageUrl": "/images/categories/all.svg"
+      "imageUrl": "/images/categories/all/all.svg",
+      "imageUrlHover": "/images/categories/all/all_hover.svg",
+      "imageUrlActive": "/images/categories/all/all_active.svg"
     },
     {
       "id": 2,
       "name": "Городской транспорт",
-      "imageUrl": "/images/categories/city-transport.svg"
+      "imageUrl": "/images/categories/city-transport/city-transport.svg",
+      "imageUrlHover": "/images/categories/city-transport/city-transport_hover.svg",
+      "imageUrlActive": "/images/categories/city-transport/city-transport_active.svg"
     },
     {
       "id": 3,
       "name": "Метро",
-      "imageUrl": "/images/categories/metro.svg"
+      "imageUrl": "/images/categories/metro/metro.svg",
+      "imageUrlHover": "/images/categories/metro/metro_hover.svg",
+      "imageUrlActive": "/images/categories/metro/metro_active.svg"
     },
     {
       "id": 4,
       "name": "Такси",
-      "imageUrl": "/images/categories/taxi.svg"
+      "imageUrl": "/images/categories/taxi/taxi.svg",
+      "imageUrlHover": "/images/categories/taxi/taxi_hover.svg",
+      "imageUrlActive": "/images/categories/taxi/taxi_active.svg"
     },
     {
       "id": 5,
       "name": "Оплата",
-      "imageUrl": "/images/categories/payment.svg"
+      "imageUrl": "/images/categories/payment/payment.svg",
+      "imageUrlHover": "/images/categories/payment/payment_hover.svg",
+      "imageUrlActive": "/images/categories/payment/payment_active.svg"
     },
     {
       "id": 6,
       "name": "Отзывы",
-      "imageUrl": "/images/categories/reviews.svg"
+      "imageUrl": "/images/categories/reviews/reviews.svg",
+      "imageUrlHover": "/images/categories/reviews/reviews_hover.svg",
+      "imageUrlActive": "/images/categories/reviews/reviews_active.svg"
     },
     {
       "id": 7,
       "name": "Грузы",
-      "imageUrl": "/images/categories/cargo.svg"
+      "imageUrl": "/images/categories/cargo/cargo.svg",
+      "imageUrlHover": "/images/categories/cargo/cargo_hover.svg",
+      "imageUrlActive": "/images/categories/cargo/cargo_active.svg"
     },
     {
       "id": 8,
       "name": "Доставка",
-      "imageUrl": "/images/categories/delivery.svg"
+      "imageUrl": "/images/categories/delivery/delivery.svg",
+      "imageUrlHover": "/images/categories/delivery/delivery_hover.svg",
+      "imageUrlActive": "/images/categories/delivery/delivery_active.svg"
     },
     {
       "id": 9,
       "name": "Паркинг",
-      "imageUrl": "/images/categories/parking.svg"
+      "imageUrl": "/images/categories/parking/parking.svg",
+      "imageUrlHover": "/images/categories/parking/parking_hover.svg",
+      "imageUrlActive": "/images/categories/parking/parking_active.svg"
     },
     {
       "id": 10,
       "name": "Заправка",
-      "imageUrl": "/images/categories/gas-station.svg"
+      "imageUrl": "/images/categories/gas-station/gas-station.svg",
+      "imageUrlHover": "/images/categories/gas-station/gas-station_hover.svg",
+      "imageUrlActive": "/images/categories/gas-station/gas-station_active.svg"
     },
     {
       "id": 11,
-      "name": "Еще категория",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
-    },
-    {
-      "id": 12,
-      "name": "И еще категория",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
-    },
-    {
-      "id": 13,
-      "name": "И снова категория",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
-    },
-    {
-      "id": 14,
-      "name": "И... категория",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
-    },
-    {
-      "id": 15,
-      "name": "И еще рраз категория",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
-    },
-    {
-      "id": 16,
-      "name": "Иииии категория",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
-    },
-    {
-      "id": 17,
-      "name": "Да, и тут категория",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
-    },
-    {
-      "id": 18,
-      "name": "Хватит скроллить.",
-      "imageUrl": "/images/categories/mock-placeholder.svg"
+      "name": "Туризм",
+      "imageUrl": "/images/categories/placeholder/placeholder.svg",
+      "imageUrlHover": "/images/categories/placeholder/placeholder_hover.svg",
+      "imageUrlActive": "/images/categories/placeholder/placeholder_active.svg"
     }
   ]
 }

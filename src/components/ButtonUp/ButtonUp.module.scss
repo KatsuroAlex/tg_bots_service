@@ -1,0 +1,31 @@
+@import './../../vendor/_varibles';
+
+.backUp {
+  position: fixed;
+  top: 85%;
+  right: 35px;
+  z-index: 5;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  @include shadowBackground($background-white, $mobile-box-shadow-footer);
+  &__button {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+    background-color: $mobile-header-background-button;
+  }
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../images/images-for-mobile/buttonUpMain/buttonUpMain.svg)
+      no-repeat center;
+  }
+}
