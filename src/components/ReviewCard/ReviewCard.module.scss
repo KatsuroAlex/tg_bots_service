@@ -40,23 +40,38 @@
   }
 
   &__userName {
-    @include text($font-medium-24, $weight-300, $line-height-medium-24, $color-gray-text);
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-medium-24,
+      $color-gray-text
+    );
   }
 
   &__userDate {
-    @include text($font-footer-18, $weight-300, $line-height-footer-18, $color-gray-text);
+    @include text(
+      $font-footer-18,
+      $weight-300,
+      $line-height-footer-18,
+      $color-gray-text
+    );
   }
 
   &__stars {
     margin-top: 30px;
     display: flex;
   }
-  
+
   &__reviewText {
     margin: 0 60px 0 140px;
-    @include text($font-medium-24, $weight-300, $line-height-medium-24, $color-gray-text);
+    @include text(
+      $font-medium-24,
+      $weight-300,
+      $line-height-medium-24,
+      $color-gray-text
+    );
   }
-  
+
   &__likeFeedbackSection {
     display: flex;
     flex-direction: row;
@@ -70,7 +85,7 @@
   &__likeButton {
     width: 69px;
     height: 40px;
-    background-color: #D3E2F7;
+    background-color: #d3e2f7;
     border: none;
     border-radius: 10px;
     display: flex;
@@ -83,7 +98,7 @@
   &__feedbackButton {
     width: 69px;
     height: 40px;
-    background-color: #D3E2F7;
+    background-color: #d3e2f7;
     border: none;
     border-radius: 10px;
     display: flex;
@@ -91,11 +106,9 @@
     align-items: center;
     justify-content: center;
     column-gap: 5px;
-
   }
-  
-  &__iconContainer {
 
+  &__iconContainer {
   }
 
   &__likeIcon {
@@ -108,10 +121,9 @@
     display: flex;
     flex-direction: row;
     margin: 30px 60px 40px 60px;
-    border-top: 1px solid #D3E2F7;
+    border-top: 1px solid #d3e2f7;
     column-gap: 5px;
     justify-content: space-between;
-
   }
 
   &__userImgSmall {
@@ -126,32 +138,31 @@
     max-width: 594px;
     width: 100%;
     min-height: 41px;
-    background-color: #D3E2F7;
+    background-color: #d3e2f7;
     border: none;
     border-radius: 10px;
     margin-top: 50px;
-    border-color: #84A7D5;
+    border-color: #84a7d5;
     resize: none;
   }
 
   &__textarea::placeholder {
-    padding-top: 10px; 
-    padding-left: 15px; 
-    line-height: 1.5; 
-    color:#84A7D5;
+    padding-top: 10px;
+    padding-left: 15px;
+    line-height: 1.5;
+    color: #84a7d5;
 
-    @include text($font-small-14, $weight-300, 21px, #84A7D5);
-
+    @include text($font-small-14, $weight-300, 21px, #84a7d5);
   }
 
   &__addButton {
     margin-top: 50px;
     width: 40px;
     height: 40px;
-    background-color: #D3E2F7;
+    background-color: #d3e2f7;
     border: none;
     border-radius: 10px;
-    color: #3B7DD6;
+    color: #3b7dd6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,11 +172,10 @@
     margin-top: 50px;
     width: 108px;
     height: 40px;
-    background-color: #3B7DD6;
+    background-color: #3b7dd6;
     border: none;
     border-radius: 10px;
     // color: #fff;
     @include text(14px, 500, 17.5px, #fff);
-
   }
 }
